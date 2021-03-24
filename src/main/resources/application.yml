@@ -1,3 +1,23 @@
-spring-hateoas:
-  poke-api:
-    url: https://pokeapi.co/api/v2
+server:
+  port: 8010
+  servlet:
+    context-path: /hateoas
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: localhost
+    url: jdbc:mysql://localhost:3306/hateoas?useTimezone=true&serverTimezone=America/Belem&createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: toor
+  jpa:
+    database: mysql
+    properties.hibernate:
+      show_sql: true
+      format_sql: true
+  liquibase:
+    url: ${spring.datasource.url}
+    default-schema: hateoas
+    change-log: classpath:/liquibase/liquibase-changelog.yml
+    user: root
+    password: toor

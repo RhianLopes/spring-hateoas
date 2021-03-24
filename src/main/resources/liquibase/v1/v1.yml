@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: introducing-chef
+      author: rhian.costa
+      changes:
+        - sqlFile:
+            path: chef/create-chef-table.sql
+            relativeToChangelogFile: true
+        - sqlFile:
+            path: chef/insert-into-chef-some-chefs.sql
+            relativeToChangelogFile: true
